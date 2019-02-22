@@ -14,17 +14,6 @@ body{height: 100vh;display: flex;flex-direction: column;
     overflow: hidden;  /*必写*/
     height: 100%;
 }
-.shelter{
-    position: absolute;
-    width: 20px;
-    height: 10px;
-    background: #FFE600;
-}
-.shelter.left{
-    left: 35px;
-}
-.shelter.right{
-    right: 34px;
-}   
+
 
 

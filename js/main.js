@@ -12,7 +12,7 @@
                 window.clearInterval(id)
                 fn.call()
             }            
-        },20)
+        },10)
     }
     let code = `/*首先准备皮卡丘的皮*/
     .preview_wrapper{
@@ -60,13 +60,13 @@
         width: 42.75px;
         height: 42.75px;
         border: 2.25px solid black;
+        border-radius: 100%;
         background: #2e2e2e;
         position: absolute;
-        border-radius: 100%
     }
     /*左眼放左边*/
     .eye.left{
-        left: 45px
+        left: 45px;
     }
     /*右眼放右边*/
     .eye.right{
@@ -138,6 +138,18 @@
         position: absolute;
         right: 25px;   
     }
+    .shelter{
+        position: absolute;
+        width: 20px;
+        height: 10px;
+        background: #FFE600;
+    }
+    .shelter.left{
+        left: 35px;
+    }
+    .shelter.right{
+        right: 34px;
+    }   
     /*加上可爱的舌头*/
     .lowerLip{
         overflow: hidden;
