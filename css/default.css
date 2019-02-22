@@ -1,0 +1,30 @@
+*{margin: 0px;padding: 0px;box-sizing: border-box;}
+*::after,*::before{box-sizing: border-box;}
+body{height: 100vh;display: flex;flex-direction: column;
+    justify-content:center;align-items: center;background: #FFE600;font-size: 16px;}
+.code_wrapper{
+    flex: 1;
+    height: 50%;
+    width: 100%;
+    background: white;
+    /* overflow: hidden; */ /*写在这不会自动滚*/
+}
+.code_wrapper .code{
+    padding: 16px;
+    overflow: hidden;  /*必写*/
+    height: 100%;
+}
+.shelter{
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    background: #FFE600;
+}
+.shelter.left{
+    left: 35px;
+}
+.shelter.right{
+    right: 34px;
+}   
+
+
