@@ -14,6 +14,28 @@ body{height: 100vh;display: flex;flex-direction: column;
     overflow: hidden;  /*必写*/
     height: 100%;
 }
-
+.actions{
+    position: absolute;
+    top: 15px;
+    right: 8px;
+    display: flex;
+    flex-direction: column;
+}
+.actions > button{
+    border: none;
+    width: 48px;
+    height: 36px;
+    padding: 8px 8px;
+    background:rgb(241,241,241);
+    margin-bottom: 8px;
+    border-radius: 10px;
+}
+.actions > button.active{
+    background: #FFE600;
+    box-shadow: 0px 0px 5px 3px rgba(255,230,0,0.5);
+}
+.actions > button:focus{
+    outline: none;
+}
 
 
