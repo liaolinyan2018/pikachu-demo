@@ -1,6 +1,8 @@
 !function(){
     var duration = 20
-    var code = `/*首先准备皮卡丘的皮*/
+    var code = `/*我要开始画皮卡丘咯~*/
+/*首先准备皮卡丘的皮*/
+
 .preview_wrapper{
     flex: 1;
     width: 100%;
@@ -50,11 +52,14 @@
     background: #2e2e2e;
     position: absolute;
 }
+
 /*左眼放左边*/
+
 .eye.left{
     left: 45px;
 }
 /*右眼放右边*/
+
 .eye.right{
     right: 45px;
 }
@@ -81,11 +86,15 @@
     position: absolute;
     top: 82.5px;
 }
+
 /*左脸颊*/
+
 .face.left{
     left: 0px;
 }
+
 /*右脸颊*/
+
 .face.right{
     right:0px;
 }
@@ -163,28 +172,16 @@
 /*好啦，这只可爱的皮卡丘送给你哟~~*/
     `
     var id;
-    function writeCode(prefix,code,fn){
-        let codeDom = document.querySelector('#code')
-        let styleTag = document.querySelector('#styleTag')
-        let n = 0;
-        id = setTimeout(function run(){
-            n+=1;
-            codeDom.innerHTML = code.substring(0,n)
-            codeDom.scrollTop = codeDom.scrollHeight //自动滚到最大高度
-            styleTag.innerHTML = code.substring(0,n)
-            if(n < code.length){
-                id = setTimeout(run,duration) //id总是为最新setTimeout值
-                fn.call()
-            }            
-        },duration)
-    }
+    
+    /* 1.将画皮卡丘的主要代码分别写入pre标签和style标签 */
     writeCode('',code,()=>{})
-    $('.actions').on('click','button',function(e){
+
+    /* 2.按键动作 */
+    $('#actions').on('click','button',function(e){
         let $button = $(e.currentTarget) //这才是jQuery对象,e.currentTarget是dom对象
-        //console.log($button)
-        let option = $button.attr('data')
-        console.log(option)
-        $button.addClass("active").siblings('.active').removeClass('active')
+        console.log($button)
+        let option = $button.attr('data') //slow fast 
+        $button.addClass('active').siblings('.active').removeClass('active')
         switch(option){
             case 'slow': 
                 duration=60
@@ -201,9 +198,23 @@
                 break
             case 'review':
                 clearTimeout(id)
-                document.querySelector('#styleTag').innerHTML = code
+                $('#styleTag').text(code)
                 break
         }
         
     })
+
+    function writeCode(prefix,code,fn){
+        let n = 0;
+        id = setTimeout(function run(){
+            n+=1;
+            $('#code').text(code.substring(0,n))
+            $('#code').scrollTop($('#code').prop("scrollHeight"))
+            $('#styleTag').text(code.substring(0,n))
+            if(n < code.length){
+                id = setTimeout(run,duration) //id总是为最新setTimeout值
+                fn.call()
+            }            
+        },duration)
+    }
 }.call()
